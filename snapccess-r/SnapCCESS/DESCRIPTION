@@ -1,0 +1,25 @@
+Package: SnapCCESS
+Type: Package
+Title: Ensemble deep learning of embeddings for clustering multimodal single-cell omics data
+Version: 0.1.2
+Author: c(
+    person("Lijia", "Yu", email = "yulj2010@gmail.com", role = c("aut","cre"))
+    )
+Maintainer: Lijia Yu <yulj2010@gmail.com>
+Description: A R wrapper of python package SnapCCESS, ensemble deep learning of embeddings for clustering multimodal single-cell omics data.
+License: GPL
+Encoding: UTF-8
+LazyData: true
+Depends:
+    R (>= 4.0.0)
+biocViews:
+Imports:
+    reticulate,
+    rstudioapi,
+    utils
+Suggests:
+    SIMLR,
+    CiteFuse,
+    SingleCellExperiment
+RoxygenNote: 7.2.3
+BugReports: https://github.com/PYangLab/SnapCCESS/issues

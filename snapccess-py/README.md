@@ -86,7 +86,7 @@ This function will return the model, the loss of training and validation dataset
 
 #### Description
 
-To create the VAE model with constant learning rate or Snapshot learning rate
+To get the embeddings from model after training.
 
 #### Usage
 
@@ -111,7 +111,7 @@ Embedding of the `valid_dl` dataset in the VAE model, to convert it to a matrix,
 
 #### Description
 
-To create the VAE model with constant learning rate or Snapshot learning rate
+To monitor the memory usage of GPU
 
 #### Usage
 

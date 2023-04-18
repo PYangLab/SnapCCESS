@@ -40,3 +40,5 @@ For python version of script, please see [an_example_of_generate_embedding_using
 For R version of script, please see
 [SnapCCESS_R_example](https://htmlpreview.github.io/?https://github.com/PYangLab/SnapCCESS/blob/main/tutorials/src/SnapCCESS_R_example.html)
 
+## References
+Lijia Yu, Chunlei Liu, Jean Yee Hwa Yang, Pengyi Yang. Ensemble deep learning of embeddings for clustering multimodal single-cell omics data. BioRxiv, doi: [10.1101/2023.02.22.529627](https://doi.org/10.1101/2023.02.22.529627), (2023).

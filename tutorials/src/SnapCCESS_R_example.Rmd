@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 
 ## SnapCCESS
 
-SnapCCESS enables you to perform the clustering on multimodality datasets. To learn more about Quarto see [https://github.com/PYangLab/SnapCCESS](https://github.com/PYangLab/SnapCCESS){.uri}.
+SnapCCESS enables you to perform the clustering on multimodality datasets. To learn more about SnapCCESS see [https://github.com/PYangLab/SnapCCESS](https://github.com/PYangLab/SnapCCESS){.uri}.
 
 ## Install SnapCCESS in R
 

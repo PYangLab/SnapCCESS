@@ -14,7 +14,7 @@
 
 <meta name="date" content="2023-04-18" />
 
-<title>A example of run SnapCCESS with R</title>
+<title>An example of run SnapCCESS with R</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -339,7 +339,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 
-<h1 class="title toc-ignore">A example of run SnapCCESS with R</h1>
+<h1 class="title toc-ignore">An example of run SnapCCESS with R</h1>
 <h4 class="author">Lijia Yu</h4>
 <h4 class="date">2023-04-18</h4>
 
@@ -383,6 +383,7 @@ package once again</p>
 </div>
 <div id="read-the-example-data-and-do-preprocessing." class="section level2">
 <h2>Read the example data and do preprocessing.</h2>
+<p>In preprocessing stage, we preform nomalisation of each modality</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>rna<span class="ot">=</span><span class="fu">read.csv</span>(<span class="st">&quot;../in/CITEseq_logRNA.csv.gz&quot;</span>,<span class="at">row.names =</span> <span class="dv">1</span>,<span class="at">check.names =</span> F)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>adt<span class="ot">=</span><span class="fu">read.csv</span>(<span class="st">&quot;../in/CITEseq_logADT.csv.gz&quot;</span>,<span class="at">row.names =</span> <span class="dv">1</span>,<span class="at">check.names =</span> F)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -390,6 +391,7 @@ package once again</p>
 </div>
 <div id="build-model" class="section level2">
 <h2>Build model</h2>
+<p>We next build the SnapCCESS model with two modalities.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>model<span class="ot">=</span><span class="fu">build_model</span>(<span class="at">num_features=</span><span class="fu">list</span>(<span class="fu">nrow</span>(rna),<span class="fu">nrow</span>(adt)),</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">num_hidden_features=</span><span class="fu">list</span>(<span class="dv">185</span>,<span class="dv">30</span>),</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">num_latent_features=</span><span class="dv">100</span>)</span></code></pre></div>

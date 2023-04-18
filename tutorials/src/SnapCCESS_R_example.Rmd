@@ -1,5 +1,5 @@
 ---
-title: "A example of run SnapCCESS with R"
+title: "An example of run SnapCCESS with R"
 author: "Lijia Yu"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
@@ -58,7 +58,7 @@ SnapCCESS::loadmodule()
 
 ## Read the example data and do preprocessing.
 
-
+In preprocessing stage, we preform nomalisation of each modality
 ```{r,eval=FALSE}
 #| eval: false
 rna=read.csv("../in/CITEseq_logRNA.csv.gz",row.names = 1,check.names = F)
@@ -69,6 +69,8 @@ train=preprocess(x=list(rna,adt),mb_size=64)
 
 
 ## Build model
+
+We next build the SnapCCESS model with two modalities.
 
 ```{r,eval=FALSE}
 #| eval: false

@@ -8,7 +8,7 @@ run_SnapCCESS(
   model,
   data,
   lr = 0.02,
-  cycle = 50,
+  epochs = 50,
   epochs_per_cycle = 1,
   save_path = "",
   snapshot = TRUE,
@@ -22,7 +22,7 @@ run_SnapCCESS(
 
 \item{lr}{initial learning rate}
 
-\item{cycle}{number of epochs cycle, if snapshot is false,
+\item{epochs}{number of epochs, if snapshot is false,
 this become to the total epochs that will be training in traditional VAE model}
 
 \item{epochs_per_cycle}{number of epochs per cycle, if snapshot is false, this argument doesn't work}

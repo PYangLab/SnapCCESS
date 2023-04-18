@@ -63,7 +63,7 @@ build_model=function(num_features,num_hidden_features,num_latent_features){
 #' @param model SnapCCESS VAE model
 #' @param data preprocessed dataset
 #' @param lr initial learning rate
-#' @param cycle number of epochs cycle, if snapshot is false,
+#' @param epochs number of epochs, if snapshot is false,
 #' this become to the total epochs that will be training in traditional VAE model
 #' @param epochs_per_cycle number of epochs per cycle, if snapshot is false, this argument doesn't work
 #' @param save_path which specifies the folder where the embedding will be saved.
@@ -77,10 +77,10 @@ build_model=function(num_features,num_hidden_features,num_latent_features){
 #' @import reticulate
 #'
 #' @examples #output=run_SnapCCESS(model,data,epochs=50,epochs_per_cycle=2,save_path="",snapshot=TRUE)
-run_SnapCCESS=function(model,data,lr=0.02,cycle=50,epochs_per_cycle=1,
+run_SnapCCESS=function(model,data,lr=0.02,epochs=50,epochs_per_cycle=1,
                        save_path="",snapshot=TRUE,embedding_number=1){
   res=snapccess$train$train_model(model, data, data, lr=lr,
-                                  epochs=as.integer(cycle),
+                                  epochs=as.integer(epochs),
                                   epochs_per_cycle=as.integer(epochs_per_cycle),
                                   save_path=save_path,snapshot=snapshot,
                                   embedding_number=as.integer(embedding_number))

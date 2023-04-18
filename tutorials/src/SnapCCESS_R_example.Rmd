@@ -33,6 +33,8 @@ After install SnapCCESS package, we need to install the python dependencies that
 
 If we don't set up the conda path, by default it will be installed in the R r-miniconda folder.
 
+We only need to run this step once when you first install the SnapCCESS package.
+
 ```{r,eval=FALSE}
 #| eval: false
 library(SnapCCESS)
@@ -42,7 +44,7 @@ install_SnapCCESS(envname = "SnapCCESS",method = "conda",conda="/home/lijiay/min
 
 ## Loading all python packages
 
-If you intalled the package successfully, we next need to use the installed environment and load all packages from this environment.
+If you have installed the package successfully, we next need to use the installed environment and load all packages from this environment.
 
 If you are unable to load the modules, please ensure that the SnapCCESS environment is installed on your computer. After confirming its installation, please restart a new Rsession and attempt to load the package once again
 

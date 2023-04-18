@@ -362,13 +362,16 @@ package, and my conda location is
 <code>/home/lijiay/miniconda3/condabin/conda</code>.</p>
 <p>If we don’t set up the conda path, by default it will be installed in
 the R r-miniconda folder.</p>
+<p>We only need to run this step once when you first install the
+SnapCCESS package.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SnapCCESS)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install_SnapCCESS</span>(<span class="at">envname =</span> <span class="st">&quot;SnapCCESS&quot;</span>,<span class="at">method =</span> <span class="st">&quot;conda&quot;</span>,<span class="at">conda=</span><span class="st">&quot;/home/lijiay/miniconda3/condabin/conda&quot;</span>)</span></code></pre></div>
 </div>
 <div id="loading-all-python-packages" class="section level2">
 <h2>Loading all python packages</h2>
-<p>If you intalled the package successfully, we next need to use the
-installed environment and load all packages from this environment.</p>
+<p>If you have installed the package successfully, we next need to use
+the installed environment and load all packages from this
+environment.</p>
 <p>If you are unable to load the modules, please ensure that the
 SnapCCESS environment is installed on your computer. After confirming
 its installation, please restart a new Rsession and attempt to load the

@@ -41,4 +41,4 @@ For R version of script, please see
 [SnapCCESS_R_example](https://htmlpreview.github.io/?https://github.com/PYangLab/SnapCCESS/blob/main/tutorials/src/SnapCCESS_R_example.html)
 
 ## References
-Lijia Yu, Chunlei Liu, Jean Yee Hwa Yang, Pengyi Yang. Ensemble deep learning of embeddings for clustering multimodal single-cell omics data. BioRxiv, doi: [10.1101/2023.02.22.529627](https://doi.org/10.1101/2023.02.22.529627), (2023).
+Lijia Yu, Chunlei Liu, Jean Yee Hwa Yang, Pengyi Yang. Ensemble deep learning of embeddings for clustering multimodal single-cell omics data. *Bioinformatics*, 39(6), btad382, doi: [https://doi.org/10.1093/bioinformatics/btad382](https://doi.org/10.1093/bioinformatics/btad382), (2023).

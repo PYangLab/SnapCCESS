@@ -1,6 +1,4 @@
-# SnapCCESS
-
-<img src="https://i.imgur.com/XHEB9j1.png" title="SnapCCESS hex sticker"  align="right" width="225" height="250" />
+# SnapCCESS <a href="https://github.com/PYangLab/SnapCCESS"><img src="https://i.imgur.com/XHEB9j1.png" title="SnapCCESS hex sticker" align="right" height="138" /></a>
 
 SnapCCESS: Ensemble deep learning of embeddings for clustering multimodal single-cell omics data.
 

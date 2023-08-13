@@ -1,8 +1,8 @@
 # SnapCCESS
-SnapCCESS: Ensemble deep learning of embeddings for clustering multimodal single-cell omics data.
-
 
 <img src="https://i.imgur.com/XHEB9j1.png" title="SnapCCESS hex sticker"  align="right" width="225" height="250" />
+
+SnapCCESS: Ensemble deep learning of embeddings for clustering multimodal single-cell omics data.
 
 
 We propose SnapCCESS for clustering cells by integrating data modalities in multimodal

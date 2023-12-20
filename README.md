@@ -34,6 +34,7 @@ For detailed description of each function, please see [https://github.com/PYangL
 
 
 ## [Tutorial](https://github.com/PYangLab/SnapCCESS/tree/main/tutorials)
+### NOTE: This tutorial only explains how to use this package; it doesn't recommend the best parameters for your datasets. For the datasets used in the published paper associated with this package, the parameters are listed in the same paper. Please refer to the paper to guide you in finding the best parameters.
 
 
 For python version of script, please see [an_example_of_generate_embedding_using_SnapCCESS_python_version](https://github.com/PYangLab/SnapCCESS/blob/main/tutorials/src/an_example_of_generate_embedding_using_SnapCCESS_python_version.ipynb)

@@ -1,18 +1,29 @@
 [tool.poetry]
 name = "SnapCCESS"
-version = "0.2.1"
+version = "0.2.2"
 description = "Ensemble deep learning of embeddings for clustering multimodal single-cell omics data"
 authors = ["Lijia Yu <yulj2010@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = ">=3.8"
-pandas = "^1.5.1"
-tqdm = "^4.64.1"
-torch = "^1.13.0"
-pynvml = "^11.4.1"
+pandas = ">=1.5.1"
+tqdm = ">=4.64.1"
+torch = ">=2.2.0"
+pynvml = ">=11.4.1"
+
+[project.urls]
+Changelog = "https://github.com/PYangLab/SnapCCESS/CHANGES.md"
+Homepage = "https://github.com/PYangLab/SnapCCESS"
+
+[tool.hatch.metadata.hooks.fancy-pypi-readme]
+content-type = "text/markdown"
+fragments = [
+  { path = "README.md" },
+  { path = "CHANGES.md" },
+]
 
 
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core","hatch-fancy-pypi-readme"]
 build-backend = "poetry.core.masonry.api"

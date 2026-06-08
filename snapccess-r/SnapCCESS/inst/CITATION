@@ -1,0 +1,20 @@
+citHeader("If you use SnapCCESS, please cite the associated Bioinformatics paper.")
+
+citEntry(
+  entry = "Article",
+  title = "Ensemble deep learning of embeddings for clustering multimodal single-cell omics data",
+  author = personList(
+    person("Lijia", "Yu"),
+    person("Chunlei", "Liu"),
+    person("Jean Yee Hwa", "Yang"),
+    person("Pengyi", "Yang")
+  ),
+  journal = "Bioinformatics",
+  year = "2023",
+  volume = "39",
+  number = "6",
+  pages = "btad382",
+  doi = "10.1093/bioinformatics/btad382",
+  url = "https://doi.org/10.1093/bioinformatics/btad382",
+  textVersion = "Yu L, Liu C, Yang JYH, Yang P (2023). Ensemble deep learning of embeddings for clustering multimodal single-cell omics data. Bioinformatics, 39(6), btad382. doi:10.1093/bioinformatics/btad382"
+)

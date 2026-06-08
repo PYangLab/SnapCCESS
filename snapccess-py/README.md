@@ -1,129 +1,93 @@
-## SnapCCESS
+# snapccess
 
-A python package to generate ensemble deep learning of embeddings for clustering multimodal single-cell omics data
-
+Python implementation of SnapCCESS, an ensemble deep learning framework for
+learning multimodal single-cell embeddings for downstream clustering.
 
 ## Installation
 
-### Stable version
-```
-pip install snapccess  --index-url https://pypi.org/simple
-``` 
-
-https://pypi.org/project/snapccess/
-
-
-### Development version
-```
-pip install snapccess  --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple
-``` 
-
-https://test.pypi.org/project/snapccess/
-
-
-## The functions in this package are described below.
-
-### snapshotVAE
-
-#### Description
-
-To create the VAE model
-
-#### Usage
-
-```
-model = snapshotVAE(num_features=[nfeatures_rna,nfeatures_pro], num_hidden_features=[hidden_rna2,hidden_pro2], z_dim=z_dim)
+```bash
+pip install snapccess --index-url https://pypi.org/simple
 ```
 
-#### Arguments
+Development builds, when available, can be installed from TestPyPI:
 
-- num_features: a list of number of features of each modality
-- num_hidden_features: the number of hidden features we will used in training the model, in our paper, we use `hidden_rna=185`, and `hidden_pro=30`
-- z_dim: dimension of the latent space, in our paper, we use `z_dim=100`
- 
-
-#### Output
-
-A VAE model
-
-
-----------------------
-
-### train_model
-
-#### Description
-
-Training a VAE model with Snapshot learning rate or constant learning rate 
-
-
-#### Usage
-
-```
-model,histroy,embedding = train_model(model, train_dl, valid_dl, lr=lr, epochs=epochs,epochs_per_cycle=epochs_per_cycle, save_path=\"\",snapshot=True,embedding_number=1)
+```bash
+pip install snapccess --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple
 ```
 
-#### Arguments
+## Main Functions
 
-- model: a vae model
-- train_dl: training dataset
-- valid_dl: validation dataset
-- lr: initial learning rate
-- epochs: total number of train cycles for snapshot ensemble vae
-- epochs_per_cycle: the number of epochs per cycle
-- save_path: the output file path of embeddings, by default leave it blank will not save any embeddings into the `save_path`, but the `train_model` will return the embeddings
-- snapshot: a boolean value to indicate the model whether to use the snapshot ensemble method or the traditional VAE method (with constant learning rate)
-- embeddings_number: a value to indicate the index of embeddings in the output filename when apply the traditional VAE
+### `snapshotVAE`
 
+Create the multimodal variational autoencoder model.
 
-#### Output
+```python
+from snapccess.model import snapshotVAE
 
-This function will return the model, the loss of training and validation dataset (history) and a list of the latent space embeddings (for Snapshot ensemble method) or a single embedding for traditional VAE method.
-
-
--------------------
-
-### get_encodings
-
-#### Description
-
-To get the embeddings from model after training.
-
-#### Usage
-
-```
-embedding = get_encodings(model,valid_dl)
+model = snapshotVAE(
+    num_features=[nfeatures_rna, nfeatures_protein],
+    num_hidden_features=[hidden_rna, hidden_protein],
+    z_dim=100,
+)
 ```
 
+### `train_model`
 
-#### Arguments
+Train a VAE with either snapshot learning-rate cycles or a constant learning
+rate.
 
-- model: a VAE model
-- valid_dl: the dataset that used as input to training the VAE model
+```python
+from snapccess.train import train_model
 
-#### Output
-
-Embedding of the `valid_dl` dataset in the VAE model, to convert it to a matrix, try `pd.DataFrame(embedding.cpu().numpy())`
-
-
--------------------
-
-### nvidia_info
-
-#### Description
-
-To monitor the memory usage of GPU
-
-#### Usage
-
-```
-memory = nvidia_info(pid)['memory']
+model, history, embeddings = train_model(
+    model,
+    train_dl,
+    valid_dl,
+    lr=0.02,
+    epochs=50,
+    epochs_per_cycle=2,
+    save_path="",
+    snapshot=True,
+)
 ```
 
-#### Arguments
+The function returns the trained model, training/validation loss history, and a
+list of latent-space embeddings. When `save_path` is provided, embeddings are
+also written as gzip-compressed CSV files.
 
-- pid: the pid of running script
+### `get_encodings`
 
+Return embeddings from a trained model.
 
-#### Output
+```python
+from snapccess.util import get_encodings
 
-This function will return the memory usage of the pid process.
+embedding = get_encodings(model, valid_dl)
+```
+
+Convert the result to a pandas data frame with:
+
+```python
+import pandas as pd
+
+embedding_df = pd.DataFrame(embedding.cpu().numpy())
+```
+
+### `nvidia_info`
+
+Monitor GPU memory usage for a process when NVIDIA drivers and `pynvml` are
+available.
+
+```python
+from snapccess.util import nvidia_info
+
+memory = nvidia_info(pid)["memory"]
+```
+
+## Citation
+
+If you use SnapCCESS, please cite:
+
+Yu, L., Liu, C., Yang, J. Y. H. & Yang, P. Ensemble deep learning of embeddings
+for clustering multimodal single-cell omics data. *Bioinformatics* 39(6),
+btad382 (2023). <https://doi.org/10.1093/bioinformatics/btad382>

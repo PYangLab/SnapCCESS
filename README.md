@@ -1,46 +1,99 @@
 # SnapCCESS <a href="https://github.com/PYangLab/SnapCCESS"><img src="https://i.imgur.com/XHEB9j1.png" title="SnapCCESS hex sticker" align="right" height="138" /></a>
 
-SnapCCESS: Ensemble deep learning of embeddings for clustering multimodal single-cell omics data.
+SnapCCESS is an unsupervised ensemble deep learning framework for clustering
+multimodal single-cell omics data. It creates snapshots of multimodal variational
+autoencoder embeddings, which can then be used with downstream clustering
+methods to generate consensus cell clusters.
 
+The repository contains both:
 
-We propose SnapCCESS for clustering cells by integrating data modalities in multimodal
-single-cell omics data using an unsupervised ensemble deep learning framework. By creating snapshots
-of embeddings of multimodality using variational autoencoders, SnapCCESS can be coupled with
-various clustering algorithms for generating consensus clustering of cells.
+- `snapccess-py/`: the Python implementation distributed through PyPI.
+- `snapccess-r/SnapCCESS/`: an R wrapper that calls the Python package through
+  `reticulate`.
 
+![SnapCCESS workflow](https://i.imgur.com/krfBTGP.png)
 
-![img](https://i.imgur.com/krfBTGP.png)
+## Publication
 
+SnapCCESS accompanies:
 
+> Yu, L., Liu, C., Yang, J. Y. H. & Yang, P. Ensemble deep learning of
+> embeddings for clustering multimodal single-cell omics data.
+> *Bioinformatics* 39(6), btad382 (2023).
+> <https://doi.org/10.1093/bioinformatics/btad382>
 
 ## Installation
 
 ### Python
 
-```
-pip install snapccess  --index-url https://pypi.org/simple
-```
-
-For detailed description of each function, please see [https://github.com/PYangLab/SnapCCESS/tree/main/snapccess-py](https://github.com/PYangLab/SnapCCESS/tree/main/snapccess-py)
-
-
-### R
-
-```
-remotes::install_github(repo='PYangLab/SnapCCESS',branch='main',subdir='snapccess-r/SnapCCESS')
+```bash
+pip install snapccess --index-url https://pypi.org/simple
 ```
 
-For detailed description of each function, please see [https://github.com/PYangLab/SnapCCESS/tree/main/snapccess-r](https://github.com/PYangLab/SnapCCESS/tree/main/snapccess-r)
+The Python package depends on PyTorch. GPU acceleration is optional and depends
+on the local PyTorch/CUDA or PyTorch/ROCm installation.
 
+### R Wrapper
 
-## [Tutorial](https://github.com/PYangLab/SnapCCESS/tree/main/tutorials)
-### NOTE: This tutorial only explains how to use this package; it doesn't recommend the best parameters for your datasets. For the datasets used in the published paper associated with this package, the parameters are listed in the same paper. Please refer to the paper to guide you in finding the best parameters.
+```r
+remotes::install_github(
+  repo = "PYangLab/SnapCCESS",
+  branch = "main",
+  subdir = "snapccess-r/SnapCCESS"
+)
+```
 
+After installing the R wrapper, install the Python package into a reticulate
+environment:
 
-For python version of script, please see [an_example_of_generate_embedding_using_SnapCCESS_python_version](https://github.com/PYangLab/SnapCCESS/blob/main/tutorials/src/an_example_of_generate_embedding_using_SnapCCESS_python_version.ipynb)
+```r
+SnapCCESS::install_SnapCCESS(envname = "SnapCCESS", method = "conda")
+```
 
-For R version of script, please see
-[SnapCCESS_R_example](https://htmlpreview.github.io/?https://github.com/PYangLab/SnapCCESS/blob/main/tutorials/src/SnapCCESS_R_example.html)
+If Python dependencies are already managed through Conda, virtualenv, or a
+cluster module, configure `reticulate` to use that environment before loading
+the R wrapper.
 
-## References
-Lijia Yu, Chunlei Liu, Jean Yee Hwa Yang, Pengyi Yang. Ensemble deep learning of embeddings for clustering multimodal single-cell omics data. *Bioinformatics*, 39(6), btad382, doi: [https://doi.org/10.1093/bioinformatics/btad382](https://doi.org/10.1093/bioinformatics/btad382), (2023).
+## Input Data
+
+SnapCCESS expects a list of modalities measured across the same cells, for
+example RNA and ADT matrices from CITE-seq. Each modality should be arranged as
+features by cells before preprocessing in the R wrapper. The Python API expects
+the combined PyTorch data loader used by the training routine.
+
+The tutorial data in `tutorials/in/` includes small CITE-seq RNA, ADT, and cell
+type files that can be used to run the examples.
+
+## Tutorials
+
+- Python example:
+  [`tutorials/src/an_example_of_generate_embedding_using_SnapCCESS_python_version.ipynb`](tutorials/src/an_example_of_generate_embedding_using_SnapCCESS_python_version.ipynb)
+- R example:
+  [`tutorials/src/SnapCCESS_R_example.html`](tutorials/src/SnapCCESS_R_example.html)
+- Tutorial overview:
+  [`tutorials/README.md`](tutorials/README.md)
+
+The tutorials demonstrate package usage. The best hyperparameters can vary by
+dataset; for the datasets used in the publication, refer to the paper.
+
+## Citation
+
+If you use SnapCCESS, please cite:
+
+```bibtex
+@article{Yu2023SnapCCESS,
+  title = {Ensemble deep learning of embeddings for clustering multimodal single-cell omics data},
+  author = {Yu, Lijia and Liu, Chunlei and Yang, Jean Yee Hwa and Yang, Pengyi},
+  journal = {Bioinformatics},
+  year = {2023},
+  volume = {39},
+  number = {6},
+  pages = {btad382},
+  doi = {10.1093/bioinformatics/btad382},
+  url = {https://doi.org/10.1093/bioinformatics/btad382}
+}
+```
+
+## License
+
+SnapCCESS is distributed under the GPL-3 license.

@@ -49,6 +49,7 @@ def train_model(model, train_dl: torch.utils.data.dataloader.DataLoader , valid_
             for x in valid_dl:
                 ###forward process
                 x_prime, mu, var = model(x.to(device))
+                loss = criterion(x_prime, x.to(device)) + 0.0001*(KL_loss(mu,var))
                 
                 # log losses
                 batch_size = x.shape[0]

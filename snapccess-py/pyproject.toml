@@ -1,9 +1,25 @@
 [tool.poetry]
-name = "SnapCCESS"
+name = "snapccess"
 version = "0.2.2"
 description = "Ensemble deep learning of embeddings for clustering multimodal single-cell omics data"
-authors = ["Lijia Yu <yulj2010@gmail.com>"]
+authors = [
+  "Lijia Yu <yulj2010@gmail.com>",
+  "Chunlei Liu",
+  "Jean Yee Hwa Yang",
+  "Pengyi Yang <pengyi.yang@sydney.edu.au>"
+]
+license = "GPL-3.0-only"
 readme = "README.md"
+repository = "https://github.com/PYangLab/SnapCCESS"
+homepage = "https://github.com/PYangLab/SnapCCESS"
+keywords = ["single-cell", "multimodal", "clustering", "deep-learning", "vae"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
 
 [tool.poetry.dependencies]
 python = ">=3.8"
@@ -13,7 +29,7 @@ torch = ">=2.2.0"
 pynvml = ">=11.4.1"
 
 [project.urls]
-Changelog = "https://github.com/PYangLab/SnapCCESS/CHANGES.md"
+Changelog = "https://github.com/PYangLab/SnapCCESS/blob/main/CHANGES.md"
 Homepage = "https://github.com/PYangLab/SnapCCESS"
 
 [tool.hatch.metadata.hooks.fancy-pypi-readme]
